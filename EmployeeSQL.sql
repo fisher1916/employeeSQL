@@ -8,8 +8,8 @@ FROM	employees e
 
 SELECT	e.first_name, e.last_name, e.hire_date
 FROM	employees e
-WHERE	hire_date > '1985-12-31'
-		AND hire_date < '1987-01-01'
+WHERE	Extract (year from e.hire_date) = 1986
+
 
 -- 3. List the manager of each department with the following information: department number, 
 -- department name, the manager's employee number, last name, first name.
@@ -66,7 +66,4 @@ SELECT		e.last_name, count(e.last_name)
 FROM		employees e
 GROUP BY	(e.last_name)
 ORDER BY	e.count DESC
-
-
-
 
